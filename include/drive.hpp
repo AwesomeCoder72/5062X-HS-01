@@ -1,8 +1,13 @@
 #pragma once
 #include "pros/motor_group.hpp"
+#include "lemlib/api.hpp"
 
 extern pros::MotorGroup drive_left;
 extern pros::MotorGroup drive_right;
+
+extern lemlib::Chassis chassis;
+extern pros::Controller controller;
+
 
 float curve_drive_values(int input_value, float scalar);
 

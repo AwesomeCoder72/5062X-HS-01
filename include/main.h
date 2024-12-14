@@ -1,3 +1,4 @@
+#pragma once
 /**
  * \file main.h
  *
@@ -41,6 +42,9 @@
  */
 //#include "okapi/api.hpp"
 
+#include "lemlib/api.hpp" // IWYU pragma: keep
+
+
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
  * Motor, you can use the namespace with the following commented out line.
@@ -58,14 +62,17 @@
  * that they can be called from user code (i.e. calling autonomous from a
  * button press in opcontrol() for testing purposes).
  */
+
+ 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-void autonomous(void);
-void initialize(void);
-void disabled(void);
-void competition_initialize(void);
-void opcontrol(void);
+extern void autonomous(void);
+extern void initialize(void);
+extern void disabled(void);
+extern void competition_initialize(void);
+extern void opcontrol(void);
 #ifdef __cplusplus
 }
 #endif

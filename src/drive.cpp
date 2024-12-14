@@ -1,5 +1,9 @@
 #include "drive.hpp"
-#include "main.h"
+#include "main.cpp"
+
+lemlib::Chassis chassis(drivetrain, lateralPIDController, angularPIDController, sensors);
+pros::Controller controller (pros::E_CONTROLLER_MASTER);
+
 
 float curve_drive_values(int input_value, float scalar) {
     return (exp( - (scalar / 10.0)) + exp( (abs(input_value) - 127) / 10.0 ) * (1 - exp(-(scalar/10.0))) * input_value);

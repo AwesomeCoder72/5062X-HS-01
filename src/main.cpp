@@ -10,13 +10,14 @@
 */
 
 // #include "catapult.hpp"
-// #include "autons.hpp"
+#include "autons.hpp"
 #include "intake.hpp"
 // #include "pistons.hpp"
 // #include "pot_auton_selector.hpp"
 #include "drive.hpp"
 #include "pistons.hpp"
 #include "pros/adi.hpp"
+#include "pros/misc.h"
 #include "pros/motor_group.hpp"
 
 // RADIO PORT - 13
@@ -33,8 +34,8 @@
 #define DRIVE_LF_PORT 18
 
 #define DRIVE_RB_PORT 15
-#define DRIVE_RT_PORT 12
-#define DRIVE_RF_PORT 11
+#define DRIVE_RT_PORT 11
+#define DRIVE_RF_PORT 12
 
 /*
 	IMU PORT DEFINITIONS
@@ -88,14 +89,13 @@
 	CONTROLLER DEFINITION
 */
 
-pros::Controller controller (pros::E_CONTROLLER_MASTER);
 
 /*
 	MOTOR INITIALIZATIONS
 */
 
-pros::Motor Intake(-INTAKE_MOTOR_PORT);
-pros::Motor RingLift(-RING_LIFT_MOTOR_PORT);
+pros::Motor Intake(-INTAKE_MOTOR_PORT, pros::v5::MotorGears::blue);
+pros::Motor RingLift(-RING_LIFT_MOTOR_PORT, pros::v5::MotorGears::blue);
 
 /*
 	SENSOR INITIALIZATIONS
@@ -196,8 +196,6 @@ lemlib::ControllerSettings angularPIDController {
 	LEMLIB DRIVE CHASSIS CONSTRUCTOR INITIALIZATION
 */
 
-lemlib::Chassis chassis(drivetrain, lateralPIDController, angularPIDController, sensors);
-
 /*
 	CATAPULT CONFIG
 */
@@ -267,7 +265,7 @@ void competition_initialize() {}
  */
 
 void autonomous() {
-	// goofy_auton();
+	goofy_auton();
 //   switch (get_selected_auton(AutonPot.get_value())) {
 //     case 1:
 //     	return;
@@ -327,10 +325,10 @@ void opcontrol() {
 
 		// chassis.arcade(127, 127, 0.0);
 
-		split_arcade(controller.get_analog(ANALOG_LEFT_X),
-                     controller.get_analog(ANALOG_LEFT_Y), 
-                     controller.get_analog(ANALOG_RIGHT_X), 
-                     controller.get_analog(ANALOG_RIGHT_Y), 
+		split_arcade(controller.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_X),
+                     controller.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y), 
+                     controller.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X), 
+                     controller.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_Y), 
                      15, 
                      15, 
                      80, 
