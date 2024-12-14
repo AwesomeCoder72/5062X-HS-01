@@ -4,8 +4,10 @@
 void spin_intake_auto(bool intaking, int velocity) {
   if (intaking) {
     Intake.move_relative(100000, velocity);
+    RingLift.move_relative(100000, velocity);
   } else if (!intaking) {
     Intake.move_relative(-100000, velocity);
+    RingLift.move_relative(-100000, velocity);
   }
 }
 

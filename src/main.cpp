@@ -15,6 +15,7 @@
 // #include "pistons.hpp"
 // #include "pot_auton_selector.hpp"
 #include "drive.hpp"
+#include "autons.hpp"
 #include "pistons.hpp"
 #include "pros/adi.hpp"
 #include "pros/motor_group.hpp"
@@ -267,7 +268,7 @@ void competition_initialize() {}
  */
 
 void autonomous() {
-	// goofy_auton();
+	goofy_auton();
 //   switch (get_selected_auton(AutonPot.get_value())) {
 //     case 1:
 //     	return;
