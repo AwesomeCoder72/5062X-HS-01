@@ -68,11 +68,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern void autonomous(void);
-extern void initialize(void);
-extern void disabled(void);
-extern void competition_initialize(void);
-extern void opcontrol(void);
+void autonomous(void);
+void initialize(void);
+void disabled(void);
+void competition_initialize(void);
+void opcontrol(void);
 #ifdef __cplusplus
 }
 #endif
