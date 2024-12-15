@@ -5,7 +5,6 @@ void spin_intake_auto(bool intaking, int velocity) {
   if (intaking) {
     Intake.move_relative(100000, velocity);
     RingLift.move_relative(100000, velocity);
-
   } else if (!intaking) {
     Intake.move_relative(-100000, velocity);
     RingLift.move_relative(-100000, velocity);
@@ -14,6 +13,7 @@ void spin_intake_auto(bool intaking, int velocity) {
 
 void stop_intake_auto() {
   Intake.move_velocity(0);
+  RingLift.move_velocity(0);
 }
 
 int intake_spinning = 0;

@@ -15,6 +15,7 @@
 // #include "pistons.hpp"
 // #include "pot_auton_selector.hpp"
 #include "drive.hpp"
+#include "autons.hpp"
 #include "pistons.hpp"
 #include "pros/adi.hpp"
 #include "pros/misc.h"
@@ -142,7 +143,7 @@ pros::Imu inertial_sensor(IMU_PORT);
 lemlib::Drivetrain drivetrain {
     &drive_left, // left drivetrain motors
     &drive_right, // right drivetrain motors
-    10.25, // track width
+    11.125, // track width
     3.25, // wheel diameter // 3.175
     450, // wheel rpm
 	10 // chase power
@@ -181,14 +182,14 @@ lemlib::ControllerSettings lateralPIDController {
 */
  
 lemlib::ControllerSettings angularPIDController {
-    2.9, // kP // 2.2 // 2.67
+    2.0, // kP // 2.2 // 2.67
 	0, // kI
-    24.68, // kD // 20
+    22, // 24.68, // kD // 20
 	0, // antiWindUp ???
-    3, // smallErrorRange
+    1.5, // smallErrorRange
     100, // smallErrorTimeout
-    10, // largeErrorRange
-    500, // largeErrorTimeout
+    5, // largeErrorRange
+    1000, // largeErrorTimeout
     5 // slew rate
 };
 
@@ -265,7 +266,8 @@ void competition_initialize() {}
  */
 
 void autonomous() {
-	goofy_auton();
+	// goofy_auton();
+	red_negative();
 //   switch (get_selected_auton(AutonPot.get_value())) {
 //     case 1:
 //     	return;

@@ -1,6 +1,12 @@
 #pragma once
 #include "lemlib/chassis/chassis.hpp"
 #include "pros/motor_group.hpp"
+#include "lemlib/chassis/chassis.hpp"
+
+extern pros::MotorGroup drive_left;
+extern pros::MotorGroup drive_right;
+
+extern lemlib::Chassis chassis;
 
 extern pros::MotorGroup drive_left;
 extern pros::MotorGroup drive_right;
