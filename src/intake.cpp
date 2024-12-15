@@ -13,6 +13,7 @@ void spin_intake_auto(bool intaking, int velocity) {
 
 void stop_intake_auto() {
   Intake.move_velocity(0);
+  RingLift.move_velocity(0);
 }
 
 int intake_spinning = 0;
