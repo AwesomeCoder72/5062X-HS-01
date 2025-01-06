@@ -1,6 +1,15 @@
 #include "intake.hpp"
 #include "main.h"
 
+/*
+if intaking and sees_ring:
+  slowdown()
+  outtake()
+
+
+
+*/
+
 void spin_intake_auto(bool intaking, int velocity) {
   if (intaking) {
     Intake.move_relative(100000, velocity);
